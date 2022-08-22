@@ -25,5 +25,15 @@
         "spaced-comment": "error",
         "quotes": ["error", "single"],
         "no-duplicate-imports": "error"
+    },
+    "settings": {
+        "import/resolver": {
+          "alias": {
+                "map": [
+                    ["@components", "./src/components"]
+                ],
+                "extensions": [".js"]
+            }
+        }
     }
 }
