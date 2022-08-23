@@ -3,7 +3,13 @@
     "baseUrl": "./src",
     "paths": {
       "@components": ["./components"],
-      "@theme": ["./theme"]
+      "@containers": ["./containers"],
+      "@scenes": ["./scenes"],
+      "@layout": ["./layout"],
+      "@theme": ["./theme"],
+      "@styles": ["./styles"],
+      "@constants": ["./constants"],
+      "@routes": ["./routes"]
     }
   },
   "exclude": ["node_modules"]

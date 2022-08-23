@@ -15,6 +15,7 @@ const theme = createTheme({
       default: '#E5E5E5',
     },
   },
+  pxToRem: (pixel) => `${0.0625 * pixel}rem`,
 });
 
 export default theme;

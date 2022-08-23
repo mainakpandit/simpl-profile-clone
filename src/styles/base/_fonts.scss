@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src: url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-300.eot');
+  src: url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-300.eot?#iefix') format('embedded-opentype'),
+       url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-300.woff2') format('woff2'),
+       url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-300.woff') format('woff'),
+       url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-300.ttf') format('truetype'),
+       url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-300.svg#SourceSansPro') format('svg');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-regular.eot');
+  src: url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-regular.eot?#iefix') format('embedded-opentype'),
+       url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-regular.woff2') format('woff2'),
+       url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-regular.woff') format('woff'),
+       url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-regular.ttf') format('truetype'),
+       url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-regular.svg#SourceSansPro') format('svg');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-600.eot');
+  src: url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-600.eot?#iefix') format('embedded-opentype'),
+       url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-600.woff2') format('woff2'),
+       url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-600.woff') format('woff'),
+       url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-600.ttf') format('truetype'),
+       url('../../assets/fonts/SourceSansPro/source-sans-pro-v21-latin-600.svg#SourceSansPro') format('svg');
+}
