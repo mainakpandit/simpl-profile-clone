@@ -4,15 +4,16 @@ import { styled } from '@mui/material/styles';
 const MainLayoutContainer = styled(Box)(({ theme }) => {
   const { pxToRem } = theme;
   return `
-    min-height: 100vh;
     max-width: ${pxToRem(360)};
     margin: 0 auto;
     position: relative;
     background-color: ${theme.palette.background.default};
-    padding: ${pxToRem(40)} ${pxToRem(24)} ${pxToRem(24)};
     & > .MuiBox-root {
       position: relative;
       z-index: 1;
+      padding: ${pxToRem(40)} ${pxToRem(24)} ${pxToRem(24)};
+      min-height: 100%;
+      min-height: 100vh;
     }
     :after {
       content: "";
@@ -24,7 +25,15 @@ const MainLayoutContainer = styled(Box)(({ theme }) => {
       height: ${pxToRem(208)};
       background-color: ${theme.palette.primary.main};
     }
+    .MuiBottomNavigation-root {
+      position: fixed;
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      max-width: ${pxToRem(360)};
+    }
   `;
 });
 
-export { MainLayoutContainer };
+export default MainLayoutContainer;

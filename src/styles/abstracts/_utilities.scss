@@ -1,0 +1,15 @@
+$count: 4;
+$sides: (top, bottom, left, right);
+
+@while $count <= 60 {
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$count} {
+      margin-#{$side}: #{0.0625 * $count}rem !important;
+    }
+  
+    .p#{str-slice($side, 0, 1)}-#{$count} {
+      padding-#{$side}: #{0.0625 * $count}rem !important;
+    }
+  }
+  $count: $count + 4;
+}

@@ -9,7 +9,8 @@
       "@theme": ["./theme"],
       "@styles": ["./styles"],
       "@constants": ["./constants"],
-      "@routes": ["./routes"]
+      "@routes": ["./routes"],
+      "@hoc": ["./hoc"]
     }
   },
   "exclude": ["node_modules"]

@@ -1,11 +1,8 @@
-import Layout from '@layout';
+import withBottomNavigation from '@hoc/withBottomNavigation';
+import HomeContainer from '@containers/Home';
 
-const Profile = () => {
-  return (
-    <Layout>
-      <div></div>
-    </Layout>
-  );
+const Home = () => {
+  return <HomeContainer />;
 };
 
-export default Profile;
+export default withBottomNavigation(Home);

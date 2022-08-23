@@ -12,8 +12,17 @@ const theme = createTheme({
     },
     divider: '#CCCCCC',
     background: {
-      default: '#E5E5E5',
+      default: '#F5F5F5',
     },
+    grey: {
+      grey5: '#E0E0E0',
+    },
+  },
+  typography: {
+    fontFamily: '"Source Sans Pro", Arial, Helvetica, sans-serif',
+  },
+  shadows: {
+    navbarShadow: '0px 4px 10px rgba(0, 0, 0, 0.07)',
   },
   pxToRem: (pixel) => `${0.0625 * pixel}rem`,
 });

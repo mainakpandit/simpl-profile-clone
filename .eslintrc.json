@@ -25,7 +25,8 @@
         "spaced-comment": "error",
         "quotes": ["error", "single"],
         "no-duplicate-imports": "error",
-        "react/require-default-props": "error"
+        "react/require-default-props": "error",
+        "react/display-name": "off"
     },
     "settings": {
         "import/resolver": {
@@ -38,7 +39,8 @@
                     ["@theme", "./src/theme"],
                     ["@styles", "./src/styles"],
                     ["@constants", "./src/constants"],
-                    ["@routes", "./src/routes"]
+                    ["@routes", "./src/routes"],
+                    ["@hoc", "./src/hoc"]
                 ],
                 "extensions": [".js, .scss"]
             }
