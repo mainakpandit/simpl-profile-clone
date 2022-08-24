@@ -27,7 +27,7 @@ const withBottomNavigation = (Component) => (props) => {
   ];
 
   return (
-    <Layout classes={{ root: 'layout-height-withNavbar' }}>
+    <Layout>
       <>
         <Component {...props} />
         <BottomNavigation buttonsConfig={bottomNavButton} />
