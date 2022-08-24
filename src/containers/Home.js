@@ -6,7 +6,7 @@ import Button from '@components/Button';
 import Avatar from '@components/Avatar';
 import Typography from '@components/Typography';
 import Card from '@components/Card';
-import MerchantBadge from '@components/MerchantBadge';
+import MerchantsCard from '@components/MerchantsCard';
 import { icons } from '@constants';
 import ZomatoLogo from '@assets/images/zomato.png';
 import DunzoLogo from '@assets/images/dunzo.png';
@@ -136,31 +136,11 @@ const Home = () => {
             </Typography>
           </Grid>
         </Grid>
+        <Button variant='contained' color='primary' fullWidth>
+          PAY NOW
+        </Button>
       </Card>
-      <Card className='mt-24 pt-16 pr-0'>
-        <Typography className='grey1 mb-16' variant='h3'>
-          Use Simpl on 4500+ merchants
-        </Typography>
-        <Grid
-          container
-          direction='row'
-          alignItems='center'
-          justify-content='flex-start'
-          wrap='nowrap'
-          sx={{ overflowX: 'auto' }}
-          className='hide-scrollbar'
-        >
-          {merchantsData.map(({ name, image, colors }, index) => (
-            <MerchantBadge
-              key={name}
-              image={image}
-              name={name}
-              colors={colors}
-              sx={{ mr: index !== merchantsData.length - 1 ? '4.66px' : 0 }}
-            />
-          ))}
-        </Grid>
-      </Card>
+      <MerchantsCard classes='mt-24 pt-16 pr-0' merchantsData={merchantsData} />
     </Box>
   );
 };

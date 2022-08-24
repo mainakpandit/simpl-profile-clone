@@ -8,12 +8,12 @@ const MainLayoutContainer = styled(Box)(({ theme }) => {
     margin: 0 auto;
     position: relative;
     background-color: ${theme.palette.background.default};
+    min-height: 100vh;
     & > .MuiBox-root {
       position: relative;
       z-index: 1;
       padding: ${pxToRem(40)} ${pxToRem(24)} ${pxToRem(24)};
       min-height: 100%;
-      min-height: 100vh;
     }
     :after {
       content: "";
