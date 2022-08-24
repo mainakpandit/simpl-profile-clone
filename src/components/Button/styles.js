@@ -8,6 +8,10 @@ const StyledButton = styled(MuiButton)(({ theme }) => {
         padding: 0;
         margin: 0;
         min-width: auto;
+        font-weight: 600;
+        font-size: ${pxToRem(12)};
+        line-height: ${pxToRem(15)};
+        color: ${theme.palette.grey.grey2}
       }
       &.MuiButton-contained {
         font-weight: 600;

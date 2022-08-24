@@ -8,11 +8,13 @@ import Avatar from '@components/Avatar';
 import Typography from '@components/Typography';
 import Card from '@components/Card';
 import MerchantsCard from '@components/MerchantsCard';
+import PaymentMethod from '@components/PaymentMethod';
 import { icons } from '@constants';
 import ZomatoLogo from '@assets/images/zomato.png';
 import DunzoLogo from '@assets/images/dunzo.png';
 import BigbasketLogo from '@assets/images/bigbasket.png';
 import GrofersLogo from '@assets/images/grofers.png';
+import PayTMLogo from '@assets/images/paytm.png';
 import InvoiceImage from '@assets/images/invoice.png';
 
 const merchantsData = [
@@ -250,6 +252,7 @@ const Home = () => {
             </Typography>
           </Grid>
         ))}
+        <PaymentMethod name='PayTM' image={PayTMLogo} classes='mt-32' />
         <Button sx={{ marginTop: '18.6px' }} variant='contained' color='primary' fullWidth>
           PAY NOW
         </Button>
