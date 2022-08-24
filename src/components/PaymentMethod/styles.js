@@ -18,6 +18,8 @@ const StyledGrid = styled(Grid)(({ theme }) => {
       font-size: ${pxToRem(18)};
       line-height: ${pxToRem(12)};
       color: ${theme.palette.grey.grey2};
+    }
+    p.MuiTypography-body1, .MuiSkeleton-rounded {
       margin-left: ${pxToRem(6.3)};
     }
   `;

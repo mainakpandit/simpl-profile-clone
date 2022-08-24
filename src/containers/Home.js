@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import SvgIcon from '@mui/material/SvgIcon';
+import Skeleton from '@mui/material/Skeleton';
 
 import Button from '@components/Button';
 import Avatar from '@components/Avatar';
@@ -95,6 +97,18 @@ const paymentData = [
 ];
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useState(() => {
+    let timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <Box>
       <Grid
@@ -165,12 +179,21 @@ const Home = () => {
             wrap='nowrap'
             sx={{ width: 'auto' }}
           >
-            <Typography className='grey2' variant='h1'>
-              <span className='currency'>₹</span>26,000
-            </Typography>
-            <Typography className='grey2 mb-0' paragraph sx={{ mr: '3px' }}>
-              Due by April 20
-            </Typography>
+            {isLoading ? (
+              <>
+                <Skeleton variant='rounded' width={110} height={40} />
+                <Skeleton className='mt-8' variant='rounded' width={75} height={14} />
+              </>
+            ) : (
+              <>
+                <Typography className='grey2' variant='h1'>
+                  <span className='currency'>₹</span>26,000
+                </Typography>
+                <Typography className='grey2 mb-0' paragraph sx={{ mr: '3px' }}>
+                  Due by April 20
+                </Typography>
+              </>
+            )}
           </Grid>
         </Grid>
         <Grid
@@ -193,68 +216,96 @@ const Home = () => {
               Bill amount
             </Typography>
           </Grid>
-          <Typography paragraph className='grey2 variant1' sx={{ opacity: 0.6 }}>
-            <span className='currency'>₹</span>41,000
-          </Typography>
+          {isLoading ? (
+            <Skeleton variant='rounded' width={75} height={14} />
+          ) : (
+            <Typography paragraph className='grey2 variant1' sx={{ opacity: 0.6 }}>
+              <span className='currency'>₹</span>41,000
+            </Typography>
+          )}
         </Grid>
-        {paymentData.map(({ isPaid, date, amount, times }) => (
-          <Grid
-            container
-            direction='row'
-            alignItems='center'
-            justifyContent='space-between'
-            wrap='nowrap'
-            className='mt-16'
-            key={Math.random() * 1000}
-          >
+        {isLoading &&
+          Array(4)
+            .fill()
+            .map(() => (
+              <Grid
+                container
+                direction='row'
+                alignItems='center'
+                justifyContent='space-between'
+                wrap='nowrap'
+                className='mt-20'
+                key={Math.random() * 1000}
+              >
+                <Skeleton variant='rounded' width={120} height={15} />
+                <Skeleton variant='rounded' width={75} height={15} />
+              </Grid>
+            ))}
+        {!isLoading &&
+          paymentData.map(({ isPaid, date, amount, times }) => (
             <Grid
               container
               direction='row'
               alignItems='center'
-              justifyContent='flex-start'
-              sx={{
-                opacity: isPaid && (times ? 1 : 0.6),
-              }}
+              justifyContent='space-between'
+              wrap='nowrap'
+              className='mt-16'
+              key={Math.random() * 1000}
             >
-              {isPaid ? (
-                <SvgIcon color='grey2' viewBox='0 0 14 14' sx={{ height: 14, width: 14 }}>
-                  {icons.check}
-                </SvgIcon>
-              ) : (
-                <SvgIcon color='error' viewBox='0 0 14 14' sx={{ height: 14, width: 14 }}>
-                  {icons.alert}
-                </SvgIcon>
-              )}
-              <Typography paragraph className={`${isPaid ? 'grey2' : 'error'} ml-4 variant1`}>
-                {isPaid ? `Paid on ${date}` : 'Autopay failed'}
+              <Grid
+                container
+                direction='row'
+                alignItems='center'
+                justifyContent='flex-start'
+                sx={{
+                  opacity: isPaid && (times ? 1 : 0.6),
+                }}
+              >
+                {isPaid ? (
+                  <SvgIcon color='grey2' viewBox='0 0 14 14' sx={{ height: 14, width: 14 }}>
+                    {icons.check}
+                  </SvgIcon>
+                ) : (
+                  <SvgIcon color='error' viewBox='0 0 14 14' sx={{ height: 14, width: 14 }}>
+                    {icons.alert}
+                  </SvgIcon>
+                )}
+                <Typography paragraph className={`${isPaid ? 'grey2' : 'error'} ml-4 variant1`}>
+                  {isPaid ? `Paid on ${date}` : 'Autopay failed'}
+                </Typography>
+              </Grid>
+              <Typography
+                paragraph
+                className={`${isPaid ? 'grey2' : 'error'} variant1`}
+                sx={{
+                  opacity: isPaid && (times ? 1 : 0.6),
+                }}
+              >
+                {Boolean(times) && (
+                  <>
+                    <span>{times}</span>
+                    <Box component='span' sx={{ ml: '4px', mr: '5.25px' }}>
+                      x
+                    </Box>
+                  </>
+                )}
+                <span className='currency'>₹</span>
+                {amount}
               </Typography>
             </Grid>
-            <Typography
-              paragraph
-              className={`${isPaid ? 'grey2' : 'error'} variant1`}
-              sx={{
-                opacity: isPaid && (times ? 1 : 0.6),
-              }}
-            >
-              {Boolean(times) && (
-                <>
-                  <span>{times}</span>
-                  <Box component='span' sx={{ ml: '4px', mr: '5.25px' }}>
-                    x
-                  </Box>
-                </>
-              )}
-              <span className='currency'>₹</span>
-              {amount}
-            </Typography>
-          </Grid>
-        ))}
-        <PaymentMethod name='PayTM' image={PayTMLogo} classes='mt-32' />
-        <Button sx={{ marginTop: '18.6px' }} variant='contained' color='primary' fullWidth>
+          ))}
+        <PaymentMethod name='PayTM' image={PayTMLogo} classes='mt-32' isLoading={isLoading} />
+        <Button
+          sx={{ marginTop: '18.6px' }}
+          variant='contained'
+          color='primary'
+          fullWidth
+          disabled={isLoading}
+        >
           PAY NOW
         </Button>
       </Card>
-      <MerchantsCard classes='mt-24' merchantsData={merchantsData} />
+      <MerchantsCard classes='mt-24' merchantsData={merchantsData} isLoading={isLoading} />
     </Box>
   );
 };
