@@ -168,7 +168,7 @@ const Home = () => {
             <Typography className='grey2' variant='h1'>
               <span className='currency'>₹</span>26,000
             </Typography>
-            <Typography className='grey2 mb-0' paragraph>
+            <Typography className='grey2 mb-0' paragraph sx={{ mr: '3px' }}>
               Due by April 20
             </Typography>
           </Grid>
@@ -194,7 +194,7 @@ const Home = () => {
             </Typography>
           </Grid>
           <Typography paragraph className='grey2 variant1' sx={{ opacity: 0.6 }}>
-            ₹41,000
+            <span className='currency'>₹</span>41,000
           </Typography>
         </Grid>
         {paymentData.map(({ isPaid, date, amount, times }) => (
@@ -239,12 +239,13 @@ const Home = () => {
               {Boolean(times) && (
                 <>
                   <span>{times}</span>
-                  <Box component='span' sx={{ ml: '4px', mr: '7.5px' }}>
+                  <Box component='span' sx={{ ml: '4px', mr: '5.25px' }}>
                     x
                   </Box>
                 </>
               )}
-              ₹{amount}
+              <span className='currency'>₹</span>
+              {amount}
             </Typography>
           </Grid>
         ))}

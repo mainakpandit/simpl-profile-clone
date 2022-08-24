@@ -53,6 +53,10 @@ const StyledTypography = styled(Typography)(({ theme }) => {
       font-size: ${pxToRem(14)};
       line-height: ${pxToRem(18)};
       margin: 0;
+
+      .currency {
+        font-size: ${pxToRem(12)};
+      }
     }
     &.shadow {
       text-shadow: ${theme.shadows.textShadow1};
