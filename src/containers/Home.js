@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import SvgIcon from '@mui/material/SvgIcon';
+import { useTheme } from '@mui/material/styles';
 
 import Button from '@components/Button';
 import Avatar from '@components/Avatar';
@@ -12,61 +13,97 @@ import ZomatoLogo from '@assets/images/zomato.png';
 import DunzoLogo from '@assets/images/dunzo.png';
 import BigbasketLogo from '@assets/images/bigbasket.png';
 import GrofersLogo from '@assets/images/grofers.png';
+import InvoiceImage from '@assets/images/invoice.png';
+
+const merchantsData = [
+  {
+    name: 'Zomato',
+    image: ZomatoLogo,
+    colors: {
+      backgroundColor: '#FFF7F7',
+      borderColor: '#FFE8E8',
+    },
+  },
+  {
+    name: 'Dunzo',
+    image: DunzoLogo,
+    colors: {
+      backgroundColor: '#F8FFFA',
+      borderColor: '#DEF9E5',
+    },
+  },
+  {
+    name: 'Big Basket',
+    image: BigbasketLogo,
+    colors: {
+      backgroundColor: '#FAFFEE',
+      borderColor: '#F5FFDC',
+    },
+  },
+  {
+    name: 'Grofers',
+    image: GrofersLogo,
+    colors: {
+      backgroundColor: '#FFF4F0',
+      borderColor: '#FFE8DF',
+    },
+  },
+  {
+    name: 'Sample 1',
+    image: ZomatoLogo,
+    colors: {
+      backgroundColor: '#F4F9FF',
+      borderColor: '#DDECFF',
+    },
+  },
+  {
+    name: 'Sample 2',
+    image: GrofersLogo,
+    colors: {
+      backgroundColor: '#FFF4F0',
+      borderColor: '#FFE8DF',
+    },
+  },
+];
+
+const paymentData = [
+  {
+    isPaid: true,
+    date: 'April 18',
+    amount: 5000,
+    times: 0,
+  },
+  {
+    isPaid: true,
+    date: 'April 19',
+    amount: 5000,
+    times: 2,
+  },
+  {
+    isPaid: false,
+    date: 'April 19',
+    amount: 5000,
+    times: 5,
+  },
+  {
+    isPaid: false,
+    date: 'April 19',
+    amount: 1000,
+    times: 0,
+  },
+];
 
 const Home = () => {
-  const merchantsData = [
-    {
-      name: 'Zomato',
-      image: ZomatoLogo,
-      colors: {
-        backgroundColor: '#FFF7F7',
-        borderColor: '#FFE8E8',
-      },
-    },
-    {
-      name: 'Dunzo',
-      image: DunzoLogo,
-      colors: {
-        backgroundColor: '#F8FFFA',
-        borderColor: '#DEF9E5',
-      },
-    },
-    {
-      name: 'Big Basket',
-      image: BigbasketLogo,
-      colors: {
-        backgroundColor: '#FAFFEE',
-        borderColor: '#F5FFDC',
-      },
-    },
-    {
-      name: 'Grofers',
-      image: GrofersLogo,
-      colors: {
-        backgroundColor: '#FFF4F0',
-        borderColor: '#FFE8DF',
-      },
-    },
-    {
-      name: 'Sample 1',
-      image: ZomatoLogo,
-      colors: {
-        backgroundColor: '#F4F9FF',
-        borderColor: '#DDECFF',
-      },
-    },
-    {
-      name: 'Sample 2',
-      image: GrofersLogo,
-      colors: {
-        backgroundColor: '#FFF4F0',
-        borderColor: '#FFE8DF',
-      },
-    },
-  ];
+  const theme = useTheme();
   return (
-    <Box component='header'>
-      <Grid container direction='row' justifyContent='space-between' alignItems='center'>
+    <Box>
+      <Grid
+        component='header'
+        container
+        direction='row'
+        justifyContent='space-between'
+        alignItems='center'
+      >
         <Button type='text'>
           <Avatar>RM</Avatar>
           <Grid
@@ -108,7 +145,7 @@ const Home = () => {
           </Grid>
         </Button>
       </Grid>
-      <Card sx={{ mt: '24px' }} raised>
+      <Card component='main' sx={{ mt: '24px' }} raised>
         <Grid
           container
           direction='row'
@@ -136,7 +173,84 @@ const Home = () => {
             </Typography>
           </Grid>
         </Grid>
-        <Button variant='contained' color='primary' fullWidth>
+        <div className='dashed-divider' />
+        <Grid
+          container
+          direction='row'
+          alignItems='center'
+          justifyContent='space-between'
+          wrap='nowrap'
+          className='pt-16, pb-16'
+          sx={{ borderBottom: `1px solid ${theme.palette.divider}` }}
+        >
+          <Grid
+            container
+            direction='row'
+            alignItems='center'
+            justifyContent='flex-start'
+            sx={{ opacity: 0.6 }}
+          >
+            <img src={InvoiceImage} alt='Bill Amount' />
+            <Typography paragraph className='grey2 ml-4 variant1'>
+              Bill amount
+            </Typography>
+          </Grid>
+          <Typography paragraph className='grey2 variant1' sx={{ opacity: 0.6 }}>
+            ₹41,000
+          </Typography>
+        </Grid>
+        {paymentData.map(({ isPaid, date, amount, times }) => (
+          <Grid
+            container
+            direction='row'
+            alignItems='center'
+            justifyContent='space-between'
+            wrap='nowrap'
+            className='mt-16'
+            key={Math.random() * 1000}
+          >
+            <Grid
+              container
+              direction='row'
+              alignItems='center'
+              justifyContent='flex-start'
+              sx={{
+                opacity: isPaid && (times ? 1 : 0.6),
+              }}
+            >
+              {isPaid ? (
+                <SvgIcon color='grey2' viewBox='0 0 14 14' sx={{ height: 14, width: 14 }}>
+                  {icons.check}
+                </SvgIcon>
+              ) : (
+                <SvgIcon color='error' viewBox='0 0 14 14' sx={{ height: 14, width: 14 }}>
+                  {icons.alert}
+                </SvgIcon>
+              )}
+              <Typography paragraph className={`${isPaid ? 'grey2' : 'error'} ml-4 variant1`}>
+                {isPaid ? `Paid on ${date}` : 'Autopay failed'}
+              </Typography>
+            </Grid>
+            <Typography
+              paragraph
+              className={`${isPaid ? 'grey2' : 'error'} variant1`}
+              sx={{
+                opacity: isPaid && (times ? 1 : 0.6),
+              }}
+            >
+              {Boolean(times) && (
+                <>
+                  <span>{times}</span>
+                  <Box component='span' sx={{ ml: '4px', mr: '7.5px' }}>
+                    x
+                  </Box>
+                </>
+              )}
+              ₹{amount}
+            </Typography>
+          </Grid>
+        ))}
+        <Button sx={{ marginTop: '18.6px' }} variant='contained' color='primary' fullWidth>
           PAY NOW
         </Button>
       </Card>

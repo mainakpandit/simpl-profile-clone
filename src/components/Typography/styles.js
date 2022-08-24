@@ -48,6 +48,12 @@ const StyledTypography = styled(Typography)(({ theme }) => {
       font-size: ${pxToRem(12)};
       line-height: ${pxToRem(15)};
     }
+    &.MuiTypography-paragraph.variant1 {
+      font-weight: 400;
+      font-size: ${pxToRem(14)};
+      line-height: ${pxToRem(18)};
+      margin: 0;
+    }
     &.shadow {
       text-shadow: ${theme.shadows.textShadow1};
     }

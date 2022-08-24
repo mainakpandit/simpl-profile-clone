@@ -5,7 +5,7 @@ import Typography from '@components/Typography';
 import Card from '@components/Card';
 import MerchantBadge from '@components/MerchantBadge';
 const MerchantsCard = ({ merchantsData, classes }) => (
-  <Card className={classes}>
+  <Card className={classes} component='section'>
     <Typography className='grey1 mb-16' variant='h3'>
       Use Simpl on 4500+ merchants
     </Typography>

@@ -16,6 +16,7 @@ const CustomButtonNavigation = ({ buttonsConfig, defaultSelectedState }) => {
       onChange={(e, newValue) => {
         setValue(newValue);
       }}
+      component='nav'
     >
       {buttonsConfig.map(({ label, icon, showBadge }) => (
         <NavbarButton
