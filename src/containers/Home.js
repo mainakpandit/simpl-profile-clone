@@ -1,7 +1,6 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import SvgIcon from '@mui/material/SvgIcon';
-import { useTheme } from '@mui/material/styles';
 
 import Button from '@components/Button';
 import Avatar from '@components/Avatar';
@@ -96,7 +95,6 @@ const paymentData = [
 ];
 
 const Home = () => {
-  const theme = useTheme();
   return (
     <Box>
       <Grid
@@ -154,7 +152,7 @@ const Home = () => {
           justifyContent='space-between'
           alignItems='center'
           wrap='nowrap'
-          className='pb-20'
+          className='pb-20 dashed-border-bottom'
         >
           <Typography className='grey4 mb-16' variant='h2'>
             Amount due
@@ -170,20 +168,18 @@ const Home = () => {
             <Typography className='grey2' variant='h1'>
               <span className='currency'>₹</span>26,000
             </Typography>
-            <Typography className='grey2' paragraph>
+            <Typography className='grey2 mb-0' paragraph>
               Due by April 20
             </Typography>
           </Grid>
         </Grid>
-        <div className='dashed-divider' />
         <Grid
           container
           direction='row'
           alignItems='center'
           justifyContent='space-between'
           wrap='nowrap'
-          className='pt-16, pb-16'
-          sx={{ borderBottom: `1px solid ${theme.palette.divider}` }}
+          className='pt-16 pb-16 border-bottom'
         >
           <Grid
             container
