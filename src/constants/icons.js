@@ -122,6 +122,19 @@ const icons = {
       />
     </>
   ),
+  chevronLeft: (
+    <path
+      xmlns='http://www.w3.org/2000/svg'
+      fillRule='evenodd'
+      clipRule='evenodd'
+      d='M1.11129 8.36748C0.916028 8.15083 0.916028 7.79957 1.11129 7.58292L3.75774 4.64661L1.11129 1.71029C0.916028 1.49364 0.916028 1.14239 1.11129 0.925735C1.30655 0.709086 1.62314 0.709086 1.8184 0.925735L4.8184 4.25433C5.01366 4.47098 5.01366 4.82224 4.8184 5.03889L1.8184 8.36748C1.62314 8.58413 1.30655 8.58413 1.11129 8.36748Z'
+      fill='currentColor'
+      stroke='currentColor'
+      strokeWidth='0.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+  ),
 };
 
 export default icons;

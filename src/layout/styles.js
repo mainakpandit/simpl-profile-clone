@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 
 const MainLayoutContainer = styled(Box)(({ theme }) => {
-  const { pxToRem } = theme;
+  const { pxToRem } = theme.typography;
   return `
     max-width: ${pxToRem(360)};
     margin: 0 auto;

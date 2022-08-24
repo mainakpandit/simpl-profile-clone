@@ -21,7 +21,7 @@ const Navbar = styled(BottomNavigation)(({ theme }) => {
 });
 
 const NavbarButton = styled(BottomNavigationAction)(({ theme }) => {
-  const { pxToRem } = theme;
+  const { pxToRem } = theme.typography;
   return `
     position: relative;
     .Mui-selected::after {
@@ -36,10 +36,13 @@ const NavbarButton = styled(BottomNavigationAction)(({ theme }) => {
     }
     .MuiBottomNavigationAction-label,
     .MuiBottomNavigationAction-label.Mui-selected {
-      font-weight: 600;
+      font-weight: 400;
       margin-top: ${pxToRem(6)};
       font-size: ${pxToRem(10)};
       line-height: ${pxToRem(13)};
+    }
+    .MuiTouchRipple-root {
+      display: none;
     }
   `;
 });

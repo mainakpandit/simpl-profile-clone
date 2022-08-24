@@ -40,9 +40,10 @@
                     ["@styles", "./src/styles"],
                     ["@constants", "./src/constants"],
                     ["@routes", "./src/routes"],
-                    ["@hoc", "./src/hoc"]
+                    ["@hoc", "./src/hoc"],
+                    ["@assets", "./src/assets"]
                 ],
-                "extensions": [".js, .scss"]
+                "extensions": [".js, .scss, .png"]
             }
         }
     }

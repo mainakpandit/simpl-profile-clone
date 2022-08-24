@@ -10,7 +10,8 @@
       "@styles": ["./styles"],
       "@constants": ["./constants"],
       "@routes": ["./routes"],
-      "@hoc": ["./hoc"]
+      "@hoc": ["./hoc"],
+      "@assets": ["./assets"]
     }
   },
   "exclude": ["node_modules"]
