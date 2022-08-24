@@ -254,7 +254,7 @@ const Home = () => {
           PAY NOW
         </Button>
       </Card>
-      <MerchantsCard classes='mt-24 pt-16 pr-0' merchantsData={merchantsData} />
+      <MerchantsCard classes='mt-24' merchantsData={merchantsData} />
     </Box>
   );
 };
